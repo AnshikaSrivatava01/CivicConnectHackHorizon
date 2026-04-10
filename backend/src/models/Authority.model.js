@@ -21,7 +21,7 @@ const AuthoritySchema = new mongoose.Schema({
         required: [true, 'Contact number is required'] 
     },
     
-    // --- Professional Fields (The "Proof") ---
+   
     organization: { 
         type: String, 
         required: [true, 'Organization name (e.g., JMC) is required'] 
@@ -36,13 +36,13 @@ const AuthoritySchema = new mongoose.Schema({
         unique: true 
     },
     
-    // --- Role Logic ---
+  
     isAuthority: { 
         type: Boolean, 
         default: true 
     }
 }, { 
-    timestamps: true // Tracks when the officer joined the platform
+    timestamps: true 
 });
 
 module.exports = mongoose.model('Authority', AuthoritySchema);

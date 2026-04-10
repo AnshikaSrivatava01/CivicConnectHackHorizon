@@ -7,10 +7,10 @@ const {
     getComplaints, 
     getComplaintById, 
     updateComplaintStatus,
-    resolveComplaint // ✨ Import the new function
+    resolveComplaint 
 } = require('../controllers/complaint.controller');
 
-// --- Citizen/Guest Routes ---
+// Citizen/Guest Routes
 
 // GET all reports & POST new report (with 'Before' image)
 router.get('/', getComplaints);
@@ -20,13 +20,12 @@ router.post('/', upload.single('image'), createComplaint);
 router.get('/:id', getComplaintById);
 
 
-// --- Authority Specific Routes ---
+//Authority Specific Routes 
 
-// 1. Simple Status Update (e.g., 'In Progress')
+// 1. Simple Status Update 
 router.patch('/:id/status', updateComplaintStatus);
 
-// 2. Full Resolution Update (with 'After' image)
-// This handles: PATCH /api/complaints/:id/resolve
+// 2. Full Resolution Update 
 router.patch('/:id/resolve', upload.single('image'), resolveComplaint);
 
 

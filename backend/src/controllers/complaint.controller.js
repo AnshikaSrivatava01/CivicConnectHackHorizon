@@ -37,7 +37,7 @@ const createComplaint = async (req, res) => {
     }
 };
 
-// ✨ NEW: Authority Resolves Complaint with Image
+//  Authority Resolves Complaint with Image
 const resolveComplaint = async (req, res) => {
     try {
         const { id } = req.params;
@@ -96,7 +96,7 @@ const getComplaintById = async (req, res) => {
   }
 };
 
-// Update Status (Generic: e.g., to 'In Progress')
+// Update Status 
 const updateComplaintStatus = async (req, res) => {
     try {
         const { id } = req.params;
@@ -120,7 +120,7 @@ const updateComplaintStatus = async (req, res) => {
 
 module.exports = {
     createComplaint,
-    resolveComplaint, // Don't forget to export this!
+    resolveComplaint,
     getComplaints,
     getComplaintById,
     updateComplaintStatus
