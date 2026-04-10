@@ -13,10 +13,8 @@ const ComplaintSchema = new mongoose.Schema({
     image: {
         type: String,
         required: [true, ' An image is required'],
-        // Default image if upload fails
         default: 'https://images.unsplash.com/photo-1569060368681-889a62a8f416?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
-    // NEW FIELD : Image showing the resolved issue
     resolvedImage: {
         type: String,
         default: null
@@ -41,7 +39,6 @@ const ComplaintSchema = new mongoose.Schema({
         ref: 'User',
         required: false
     },
-    // NEW FIELD: Timestampfor when it was marked resolved
     resolvedAt: {
         type: Date,
         default: null
