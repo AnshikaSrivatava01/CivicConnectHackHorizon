@@ -1,13 +1,12 @@
 require('dotenv').config() ;
 const mongoose = require("mongoose") ;
-
 const express = require("express") ;
+const cors = require('cors') ;
 
 
 const app = express() ;
-
-
-
+app.use(express.json()) ;
+app.use(cors) ;
 
 
 //db connection 
@@ -20,7 +19,10 @@ const dbConnect = mongoose.connect(MONGO_URI)
 })
 .catch((error)=>{
     console.error("Error connecting to mongodb",error) ;
-})
+}) ;
+
+
+//routes 
 
 //server connection 
 
