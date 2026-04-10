@@ -2,6 +2,10 @@ require('dotenv').config() ;
 const mongoose = require("mongoose") ;
 const express = require("express") ;
 const cors = require('cors') ;
+const complaintRoutes = require('./routes/complaint.routes');
+const userRoutes = require('./routes/user.routes');
+const authorityRoutes = require('./routes/authority.routes');
+const aiRoutes = require('./routes/ai.routes');
 
 
 const app = express() ;
@@ -22,7 +26,21 @@ const dbConnect = mongoose.connect(MONGO_URI)
 }) ;
 
 
-//routes 
+// Routes and api endpoints
+
+// all complaint URLs will start with /api/complaints
+app.use('/api/complaints', complaintRoutes);
+// All user URLs will start with /api/users
+app.use('/api/users', userRoutes);
+// All authority URLs will start with /api/authority
+app.use('/api/authority', authorityRoutes);
+// All AI-related URLs will start with /api/ai
+app.use('/api/ai', aiRoutes);
+
+
+app.get('/api', (req, res) => {
+  res.json({ message: 'Hello from the backend!' });
+});
 
 //server connection 
 

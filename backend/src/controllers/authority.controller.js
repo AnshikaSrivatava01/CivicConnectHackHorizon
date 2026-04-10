@@ -1,7 +1,7 @@
 const Authority = require('../models/Authority.model');
 const bcrypt = require('bcryptjs');
 
-// 1. Register an Authority 
+// 1. Register an Authority (Officer)
 const registerAuthority = async (req, res) => {
     try {
         const { 
@@ -79,10 +79,13 @@ const getAuthorityProfile = async (req, res) => {
     try {
         const { id } = req.params;
 
+        // Find by ID and remove the password field from the result
         const authority = await Authority.findById(id).select('-password');
+
         if (!authority) {
             return res.status(404).json({ message: "Authority account not found" });
         }
+
         res.json(authority);
     } catch (err) {
         res.status(500).json({ 

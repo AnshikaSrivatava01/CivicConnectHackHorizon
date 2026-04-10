@@ -2,6 +2,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
+
 const model = genAI.getGenerativeModel({
     model: "gemini-2.5-flash-lite" // lighter = fewer rate limits
 });
@@ -26,6 +27,8 @@ User: ${message}`;
 
     } catch (err) {
         console.error(err.message);
+
+       
         res.status(200).json({
             reply: "Server is busy right now. Please try again in a few seconds."
         });

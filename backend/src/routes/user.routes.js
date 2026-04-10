@@ -6,11 +6,12 @@ const {
     loginUser, 
     getUserProfile,
     awardStar,
-    getUsers 
+    getUsers // ✨ 1. IMPORT THE NEW FUNCTION
 } = require('../controllers/user.controller');
 
-//path: /api/users/ 
-router.get('/', getUsers); // to get all user for leader board for gamification 
+// ✨ 2. ADD THIS ROUTE (Matches: GET http://localhost:5000/api/users)
+// This is exactly what the LeaderboardModal is looking for!
+router.get('/', getUsers);
 
 // Path: /api/users/signup
 router.post('/signup', registerUser);
@@ -21,7 +22,7 @@ router.post('/login', loginUser);
 // Path: /api/users/profile/:id
 router.get('/profile/:id', getUserProfile);
 
-
+// Authority uses this to reward citizens for helpful reports
 router.patch('/:id/award-star', awardStar);
 
 module.exports = router;

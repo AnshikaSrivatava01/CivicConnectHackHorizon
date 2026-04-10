@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
+
 const UserSchema = new mongoose.Schema({
     username: {
-        type:String,
+        type: String,
         required: [true, 'Username is required'],
-        trim:true
+        trim: true
     },
     email: {
         type: String,
@@ -19,21 +20,21 @@ const UserSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        required: [type, 'Phone number is required']
+        required: [true, 'Phone number is required']
     },
     gender: {
         type: String,
-        enum: ['Male', 'female', 'Other']
+        enum: ['Male', 'Female', 'Other']
     },
     stars: {
         type: Number,
-        default: 0
+        default: 0 // Everyone starts at zero credibility
     },
     isAuthority: {
         type: Boolean,
-        default: false 
-    },
-},{
+        default: false // Most signups will be regular citizens
+    }
+}, {
     timestamps: true
 });
 
