@@ -28,11 +28,11 @@ const UserSchema = new mongoose.Schema({
     },
     stars: {
         type: Number,
-        default: 0 
+        default: 0 // Everyone starts at zero credibility
     },
     isAuthority: {
         type: Boolean,
-        default: false 
+        default: false // Most signups will be regular citizens
     }
 }, {
     timestamps: true

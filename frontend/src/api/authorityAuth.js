@@ -1,20 +1,22 @@
 import axios from 'axios';
 
+// 1. Create an Axios instance with your Backend Base URL
 const API = axios.create({
-    baseURL: 'http://localhost:3000/api/authority', 
+    baseURL: 'http://localhost:3000/api/authority', // Ensure this matches your backend port
 });
 
-// Authority Register API
+// 2. Authority Register API
 export const registerAuthority = async (authData) => {
     try {
         const response = await API.post('/register', authData);
         return response.data;
     } catch (error) {
+        // This throws the specific error message from your Controller
         throw error.response?.data?.message || "Registration failed";
     }
 };
 
-//  Authority Login API
+// 3. Authority Login API
 export const loginAuthority = async (authData) => {
     try {
         const response = await API.post('/login', authData);
@@ -24,7 +26,7 @@ export const loginAuthority = async (authData) => {
     }
 };
 
-//  Get Authority Profile (Optional for now)
+// 4. Get Authority Profile (Optional for now)
 export const getAuthorityProfile = async (id) => {
     try {
         const response = await API.get(`/profile/${id}`);

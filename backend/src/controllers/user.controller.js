@@ -72,7 +72,7 @@ const getUserProfile = async (req, res) => {
     }
 };
 
-// Award Star (Impact Point) to Citizen
+// ✨ NEW: Award Star (Impact Point) to Citizen
 const awardStar = async (req, res) => {
     try {
         const { id } = req.params;
@@ -100,6 +100,7 @@ const awardStar = async (req, res) => {
 
 const getUsers = async (req, res) => {
     try {
+        // Fetch users, but only get fields we need for the leaderboard
         // .sort({ stars: -1 }) sorts from highest to lowest impact points
         const users = await User.find({ isAuthority: false }) 
             .select('username stars')
